@@ -1,0 +1,26 @@
+plugins {
+    id 'com.android.application'
+}
+
+def appUrl = (project.findProperty('appUrl') ?: 'https://your-app-name.streamlit.app').toString()
+
+android {
+    namespace 'com.capstone.constructionintel'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.capstone.constructionintel'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+        buildConfigField 'String', 'APP_URL', "\"${appUrl}\""
+    }
+
+    buildFeatures { buildConfig true }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
